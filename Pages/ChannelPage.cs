@@ -10,6 +10,7 @@ namespace SpecFlowBDDAutomationFramework.Pages
     public class ChannelPage
     {
         private IWebDriver driver;
+        private By repoLink = By.PartialLinkText("android");
 
         public ChannelPage(IWebDriver driver)
         {
@@ -19,6 +20,11 @@ namespace SpecFlowBDDAutomationFramework.Pages
         public string getTitle()
         {
            return driver.Title;
+        }
+        
+        public void navigateToRepo()
+        {
+            driver.FindElement(repoLink).Click();
         }
 
     }

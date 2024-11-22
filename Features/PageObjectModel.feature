@@ -1,10 +1,30 @@
 ﻿Feature: PageObjectModel
 
-Search testers talk in youtube
+Search repository in Github and Verify Results are Correct
 
-@TestersTalk
-Scenario:  PageObjectModel
-	Given Enter the youtube URL
-	When Search for the testers talk in youtube
-	And Navigate to channel
+@GithubSearch
+Scenario:  GitHubSearchRepositoryResultValidation
+	Given Enter the Github Search URL
+	When Search for the Android Repository in Github
+    And Verify Search Results contains Android
+	And Navigate to Repository
 	Then Verify title of the page
+
+
+@GithubFilterList
+Scenario: GitHubSearchRepositoryFilterOptionsValidation
+		Given Enter the Github Search URL
+		When Search for the Android Repository in Github
+		Then Verify Search Results Filter Contains Options
+		  | Code          |
+		  | Repositories  |
+		  | Issues        |
+		  | Pull requests |
+		  | Marketplace   |
+		  | Discussions   |
+		  | Users         |
+		  | Commits       |
+		  | Packages      |
+		  | Wikis         |
+		  | Topics        |
+

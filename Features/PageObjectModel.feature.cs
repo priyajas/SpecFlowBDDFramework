@@ -35,7 +35,7 @@ namespace SpecFlowBDDAutomationFramework.Features
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "PageObjectModel", "Search testers talk in youtube", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "PageObjectModel", "Search repository in Github and Verify Results are Correct", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -74,14 +74,14 @@ namespace SpecFlowBDDAutomationFramework.Features
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("PageObjectModel")]
-        [NUnit.Framework.CategoryAttribute("TestersTalk")]
-        public virtual void PageObjectModel()
+        [NUnit.Framework.DescriptionAttribute("GitHubSearchRepositoryResultValidation")]
+        [NUnit.Framework.CategoryAttribute("GithubSearch")]
+        public virtual void GitHubSearchRepositoryResultValidation()
         {
             string[] tagsOfScenario = new string[] {
-                    "TestersTalk"};
+                    "GithubSearch"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("PageObjectModel", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("GitHubSearchRepositoryResultValidation", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
 #line 6
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -103,16 +103,81 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 7
- testRunner.Given("Enter the youtube URL", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("Enter the Github Search URL", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 8
- testRunner.When("Search for the testers talk in youtube", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("Search for the Android Repository in Github", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 9
- testRunner.And("Navigate to channel", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+    testRunner.And("Verify Search Results contains Android", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 10
+ testRunner.And("Navigate to Repository", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 11
  testRunner.Then("Verify title of the page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("GitHubSearchRepositoryFilterOptionsValidation")]
+        public virtual void GitHubSearchRepositoryFilterOptionsValidation()
+        {
+            string[] tagsOfScenario = ((string[])(null));
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("GitHubSearchRepositoryFilterOptionsValidation", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+#line 13
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            bool isScenarioIgnored = default(bool);
+            bool isFeatureIgnored = default(bool);
+            if ((tagsOfScenario != null))
+            {
+                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((this._featureTags != null))
+            {
+                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((isScenarioIgnored || isFeatureIgnored))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 14
+  testRunner.Given("Enter the Github Search URL", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 15
+  testRunner.When("Search for the Android Repository in Github", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+                TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
+                            "Code"});
+                table1.AddRow(new string[] {
+                            "Repositories"});
+                table1.AddRow(new string[] {
+                            "Issues"});
+                table1.AddRow(new string[] {
+                            "Pull requests"});
+                table1.AddRow(new string[] {
+                            "Marketplace"});
+                table1.AddRow(new string[] {
+                            "Discussions"});
+                table1.AddRow(new string[] {
+                            "Users"});
+                table1.AddRow(new string[] {
+                            "Commits"});
+                table1.AddRow(new string[] {
+                            "Packages"});
+                table1.AddRow(new string[] {
+                            "Wikis"});
+                table1.AddRow(new string[] {
+                            "Topics"});
+#line 16
+  testRunner.Then("Verify Search Results Filter Contains Options", ((string)(null)), table1, "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

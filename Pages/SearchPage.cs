@@ -16,7 +16,7 @@ namespace SpecFlowBDDAutomationFramework.Pages
             this.driver = driver;
         }
 
-        By searchTextbox = By.XPath("//*[@name='search_query']");
+        By searchTextbox = By.XPath("//input[@placeholder='Search GitHub']");
 
         public ResultPage searchText(string text)
         {
